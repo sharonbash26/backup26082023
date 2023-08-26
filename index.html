@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme App</title>
+</head>
+
+<body onload="onInit()" class="rtl">
+  <h1 class="headTitle" data-trans="title">Meme Generator</h1>
+<header>
+    <select class="selectLng" onchange="onSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="he">עברית</option>
+    </select>
+    <button data-trans="btnSavedProjects" class="savedMemes" onclick="enterToSavedProjects()">Saved Memes</button>
+<section class="saved-memes-container"></section>
+</header>
+    <section class="gallery">
+
+    </section>
+
+  
+    <div class="part2">
+         
+        <!-- <button class="savedMemes" onclick="enterToSavedProjects()">Saved Memes</button> -->
+
+
+        <section class="editor" style="display: none;">
+            <button data-trans="back" class="backGallery" onclick="goBack()">Back Gallery ←</button>
+            <!-- <input type="file"  data-trans="file"  class="file-input btn" name="image" onchange="onImgInput(event)" accept="image/*" /> -->
+            <a href="#" data-trans="download"class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+            <button class="btn" data-trans="uploadBtnImg" onclick="onUploadImg()">
+                Share on Facebook
+              </button>
+            <button class="addSticker" data-trans="addStikerBtn" onclick="toggleStickerMenu()">Add Stiker</button>
+            <div class="stiker" style="display: none;">
+                <div class="modal-content">
+                    <div class="sticker-icon" draggable="true">❤</div>
+                    <div class="sticker-icon" draggable="true">🚑</div>
+                    <div class="sticker-icon" draggable="true">🚆</div>
+                    <div class="sticker-icon" draggable="true">🥙</div>
+                    <div class="sticker-icon" draggable="true">🥖</div>
+                    <div class="sticker-icon" draggable="true">👱‍♀️</div>
+                    <div class="sticker-icon" draggable="true">👮‍♀️</div>
+                </div>
+            </div>
+
+        
+              <button data-trans="shareWhatsUpBtn" class="shareWhatsApp" onclick="shareOnWhatsApp()">WhatsupShare</button>
+            <input type="text" id="my-text" data-trans="enterTextPlaceHolder" placeholder="enter text... " style="display: none; font-size: 50px;"
+                oninput="changeText()">
+            <label for="fontSelector" data-trans="selectFont">Select a Font:</label>
+            <select id="fontSelector" onchange="changeFamilyFont()">
+                <option value="Arial">Arial</option>
+                <option value="David">David</option>
+                <option value="Aharoni">Aharoni</option>
+                <option value="Georiga">Georiga</option>
+                <option value="Alef">Alef</option>
+                <option value="Impact">Impact</option>
+                <option value="Dancing Script">Dancing Script</option>
+
+                <input type="color" id="textColorPicker" value="#000000" oninput="handleColorInput(this.value)">
+                <button class="increaseFontSizeBtn" onclick="onIncreaseFontSize()" ">➕</button>
+                <button class="decreaseFontSizeBtn" onclick="onDecreaseFontSize()" >➖</button>
+                <button id="saveButton"  data-trans="saveBtn" clsss="save" onclick="save()"">Save</button>
+            </select>
+        </section>
+    
+        <canvas id="my-canvas" width="1000" height="1000">
+        </canvas>
+  
+      
+    </div>
+   
+    <!-- <section class="savedM">
+        <h2 class="headSaved"style="display: none;">Saved Memes:</h2>
+        <button class="savedMemes" onclick="enterToSavedProjects()">Saved Memes</button>
+        <div id="saved-memes-container"></div>
+     </section>
+     <canvas id="saved-memes-canvas" width="6000" height="6000"></canvas> -->
+</body>
+
+<script src="js/services/utilService.js"></script>
+<script src="js/services/memeService.js"></script>
+<script src="js/services/i18n.service.js"></script>
+<script src="js/memeController.js"></script>
+<!-- <script src="js/services/stickerServive.js"></script> -->
+<script src="js/upload-from-local.js"></script>
+<script src="js/sharing-on-facebook.js"></script>
+
+</html>
